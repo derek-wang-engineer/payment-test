@@ -1,4 +1,4 @@
-export interface Card {
+export declare interface Card {
   cardNumber: string;
   cardHolder: string;
   expirationDate: string;
