@@ -1,7 +1,7 @@
 import { Action } from '@ngrx/store';
-import { Card } from '../../../shared/models';
+import { Card } from './payment.model';
 
-export enum ActionTypes {
+export enum PaymentActionTypes {
   Create = '[Payment] Add Card',
   Delete = '[Payment] Delete Card',
   Load = '[Payment] Load cards from server',
@@ -9,25 +9,25 @@ export enum ActionTypes {
 }
 
 export class CreateCard implements Action {
-  readonly type = ActionTypes.Create;
+  readonly type = PaymentActionTypes.Create;
 
   constructor(public payload: Card) {
   }
 }
 
 export class DeleteCard implements Action {
-  readonly type = ActionTypes.Delete;
+  readonly type = PaymentActionTypes.Delete;
 
   constructor(public payload: Card) {
   }
 }
 
 export class LoadCard implements Action {
-  readonly type = ActionTypes.Load;
+  readonly type = PaymentActionTypes.Load;
 }
 
 export class LoadCardSuccess implements Action {
-  readonly type = ActionTypes.LoadSuccess;
+  readonly type = PaymentActionTypes.LoadSuccess;
 
   constructor(public payload: Card[]) {
   }
