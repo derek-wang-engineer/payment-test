@@ -8,6 +8,7 @@ import { PaymentReducer } from './core/store/payment/payment.reducer';
 import { PaymentEffects } from './core/store/payment/payment.effect';
 import { EffectsModule } from '@ngrx/effects';
 import { HttpClientModule } from '@angular/common/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { HttpClientModule } from '@angular/common/http';
     }),
     EffectsModule.forRoot([
       PaymentEffects
-    ])
+    ]),
+    BrowserAnimationsModule
   ],
   providers: [
   ],
