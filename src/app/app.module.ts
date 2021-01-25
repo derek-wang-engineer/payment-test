@@ -9,6 +9,7 @@ import { PaymentEffects } from './core/store/payment/payment.effect';
 import { EffectsModule } from '@ngrx/effects';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NgxMaskModule } from 'ngx-mask';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     EffectsModule.forRoot([
       PaymentEffects
     ]),
+    NgxMaskModule.forRoot(),
     BrowserAnimationsModule
   ],
   providers: [

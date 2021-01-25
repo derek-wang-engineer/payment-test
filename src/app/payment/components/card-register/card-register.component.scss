@@ -1,0 +1,19 @@
+.register-form {
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+
+  .title {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+
+  .actions {
+    display: flex;
+    justify-content: center;
+
+    button:first-child {
+      margin-right: 20px;
+    }
+  }
+}

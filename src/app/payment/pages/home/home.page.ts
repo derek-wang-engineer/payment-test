@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { select, Store } from '@ngrx/store';
-import { CreateCard, LoadCard } from '../../../core/store/payment/payment.action';
+import { LoadCard } from '../../../core/store/payment/payment.action';
 import { State } from '../../../core/store/state';
 import { Card, IPaymentState } from '../../../core/store/payment/payment.model';
+import { MatDialog } from '@angular/material/dialog';
+import { CardRegisterComponent } from '../../components/card-register/card-register.component';
 
 @Component({
   selector: 'app-payment-page-home',
@@ -18,7 +20,8 @@ export class HomePage implements OnInit {
   ];
 
   constructor(
-    private _store: Store<State>
+    private _store: Store<State>,
+    public dialog: MatDialog
   ) {
     this._store.pipe(select('payment')).subscribe((data: IPaymentState) => {
       this.cards = data.cards;
@@ -30,12 +33,8 @@ export class HomePage implements OnInit {
   }
 
   public openAddForm() {
-    this._store.dispatch(new CreateCard({
-      cardNumber: '4442 1111 1111 1111',
-      cardHolder: 'Test Holder',
-      expirationDate: '2020/12/12',
-      securityCode: '12C',
-      amount: 400,
-    }));
+    const dialogRef = this.dialog.open(CardRegisterComponent);
+    dialogRef.afterClosed().subscribe(result => {
+    });
   }
 }

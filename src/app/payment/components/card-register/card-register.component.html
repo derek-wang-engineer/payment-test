@@ -1,0 +1,56 @@
+<form [formGroup]="registerForm" class="register-form">
+  <h2 class="title">Register Card</h2>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Credit Card Number</mat-label>
+    <input matInput
+           type="text"
+           name="cardNumber"
+           formControlName="cardNumber"
+           mask="0000 0000 0000 0000"
+           [dropSpecialCharacters]="false"
+           [showMaskTyped]="true" />
+  </mat-form-field>
+  <mat-form-field appearance="outline">
+    <mat-label>Card Holder Name</mat-label>
+    <input matInput
+           type="text"
+           name="cardHolder"
+           formControlName="cardHolder" />
+  </mat-form-field>
+  <mat-form-field appearance="outline">
+    <mat-label>Expiration Date</mat-label>
+    <input matInput
+           type="date"
+           name="cardHolder"
+           formControlName="expirationDate" />
+  </mat-form-field>
+  <mat-form-field appearance="outline">
+    <mat-label>Security Code</mat-label>
+    <input matInput
+           type="text"
+           name="securityCode"
+           formControlName="securityCode"
+           mask="AAA"
+           [showMaskTyped]="true" />
+  </mat-form-field>
+  <mat-form-field appearance="outline">
+    <mat-label>Amount</mat-label>
+    <input matInput
+           type="number"
+           name="amount"
+           formControlName="amount" />
+  </mat-form-field>
+
+  <div class="actions">
+    <button mat-raised-button
+            color="primary"
+            (click)="submitForm()"
+            [disabled]="!registerForm.valid">
+      Register Card
+    </button>
+    <button mat-raised-button color="accent" (click)="cancelRegister()">
+      Cancel
+    </button>
+  </div>
+</form>

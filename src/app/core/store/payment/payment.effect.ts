@@ -19,7 +19,6 @@ export class PaymentEffects {
     mergeMap((action: CreateCard) =>
       this._paymentService.createCard(action.payload).pipe(
         map(() => {
-          console.log('Reached Here', action.payload);
           return {
             type: PaymentActionTypes.CreateSuccess,
             payload: action.payload
