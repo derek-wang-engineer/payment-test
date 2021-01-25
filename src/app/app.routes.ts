@@ -5,7 +5,12 @@ import { AppComponent } from './app.component';
 const routes: Routes = [
   {
     path: '',
-    component: AppComponent
+    pathMatch: 'full',
+    redirectTo: '/main/home'
+  },
+  {
+    path: 'main',
+    loadChildren: () => import('./main/main.module').then(m => m.MainModule)
   },
   {
     path: 'payment',
@@ -13,7 +18,7 @@ const routes: Routes = [
   },
   {
     path: '**',
-    redirectTo: ''
+    redirectTo: '/main/home'
   }
 ];
 
