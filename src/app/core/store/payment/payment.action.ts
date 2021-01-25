@@ -3,7 +3,7 @@ import { Card } from './payment.model';
 
 export enum PaymentActionTypes {
   Create = '[Payment] Add Card',
-  Delete = '[Payment] Delete Card',
+  CreateSuccess = '[Payment] Create Success',
   Load = '[Payment] Load cards from server',
   LoadSuccess = '[Payment] Load Success'
 }
@@ -15,8 +15,8 @@ export class CreateCard implements Action {
   }
 }
 
-export class DeleteCard implements Action {
-  readonly type = PaymentActionTypes.Delete;
+export class CreateCardSuccess implements Action {
+  readonly type = PaymentActionTypes.CreateSuccess;
 
   constructor(public payload: Card) {
   }
@@ -33,4 +33,4 @@ export class LoadCardSuccess implements Action {
   }
 }
 
-export type PaymentActions = CreateCard | DeleteCard | LoadCard | LoadCardSuccess;
+export type PaymentActions = CreateCard | CreateCardSuccess | LoadCard | LoadCardSuccess;

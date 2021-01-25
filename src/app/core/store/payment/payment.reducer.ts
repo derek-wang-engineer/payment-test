@@ -7,22 +7,16 @@ export const initialState: IPaymentState = {
 
 export function PaymentReducer(state = initialState, action: PaymentActions) {
   switch (action.type) {
-    case PaymentActionTypes.Create:
+    case PaymentActionTypes.CreateSuccess:
       return {
         ...state,
         cards: [ ...state.cards, action.payload ]
       };
-    case PaymentActionTypes.Delete:
-      return {
-        ...state,
-        cards: [ ...state.cards.filter(item => item.cardNumber !== action.payload.cardNumber) ]
-      }
     case PaymentActionTypes.LoadSuccess:
-      console.log('Payload', action.payload);
       return {
         ...state,
         cards: [ ...action.payload ]
-      }
+      };
     default:
       return state;
   }
